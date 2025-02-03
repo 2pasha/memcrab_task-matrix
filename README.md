@@ -1,3 +1,5 @@
+# [DEMO LINK](https://2pasha.github.io/memcrab_task-matrix/)
+
 # Interactive Matrix Application
 
 A React TypeScript application that allows users to create and interact with a dynamic matrix of numbers. This application provides various features for matrix manipulation and data analysis.
