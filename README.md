@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+# Interactive Matrix Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React TypeScript application that allows users to create and interact with a dynamic matrix of numbers. This application provides various features for matrix manipulation and data analysis.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dynamic Matrix Creation**: 
+  - Create a matrix with customizable dimensions (M×N)
+  - M and N values can be between 1 and 100
+  - Initial cell values are randomly generated between 1 and 100
 
-## Expanding the ESLint configuration
+- **Matrix Manipulation**:
+  - Click on any cell to increment its value
+  - Add new rows (up to 100 rows maximum)
+  - Remove specific rows using the 'x' button
+  - Hover over cells to highlight similar values
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Data Analysis**:
+  - Sum calculation for each row
+  - 50th percentile (median) calculation for each column
+  - Interactive percentage view on row hover
+  - Heatmap visualization for relative values
 
-- Configure the top-level `parserOptions` property like this:
+## Understanding the 50th Percentile
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The 50th percentile, also known as the median, is a statistical measure that represents the middle value when data is ordered from lowest to highest. In this application, it's calculated for each column separately.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+How it works:
+1. Take all values in a column
+2. Sort them from lowest to highest
+3. Find the middle value:
+   - For odd number of values: take the middle number
+   - For even number of values: take average of two middle numbers
