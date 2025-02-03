@@ -28,36 +28,26 @@ export const AppContent: React.FC = () => {
     return {
       m: params.m,
       n: params.n,
-      x: params.x
+      x: params.x,
     };
   };
 
   return (
-      <div className="app">
-        <h1 className="app__title">Interactive Matrix</h1>
-        
-        {!isMatrixGenerated && (
-          <button
-            className="app__generate-button"
-            onClick={() => setShowModal(true)}
-          >
-            Generate New Matrix
-          </button>
-        )}
+    <div className="app">
+      <h1 className="app__title">Interactive Matrix</h1>
 
-        <Modal
-          isOpen={showModal}
-          onClose={() => setShowModal(false)}
-          title='Matrix Settings'
-        >
-          <Controls 
-            onGenerate={handleMatrixGenerate} 
-            initialValues={getCurrentDimensions()}
-          />
-        </Modal>
+      {!isMatrixGenerated && (
+        <button className="app__generate-button" onClick={() => setShowModal(true)}>
+          Generate New Matrix
+        </button>
+      )}
 
-        {isMatrixGenerated && <Matrix onEditMatrix={handleEditMatrix} />}
-      </div>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)} title="Matrix Settings">
+        <Controls onGenerate={handleMatrixGenerate} initialValues={getCurrentDimensions()} />
+      </Modal>
+
+      {isMatrixGenerated && <Matrix onEditMatrix={handleEditMatrix} />}
+    </div>
   );
 };
 
@@ -67,4 +57,4 @@ export const App: React.FC = () => {
       <AppContent />
     </MatrixProvider>
   );
-}; 
+};

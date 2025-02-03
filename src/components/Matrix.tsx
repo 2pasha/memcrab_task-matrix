@@ -7,7 +7,7 @@ interface MatrixProps {
   onEditMatrix: () => void;
 }
 
-export const Matrix: React.FC<MatrixProps> = ({ onEditMatrix}) => {
+export const Matrix: React.FC<MatrixProps> = ({ onEditMatrix }) => {
   const { matrix, getNearestCells, getRowSum, getColPersentile, incrementCell, removeRow, addRow } =
     useMatrix();
 
@@ -73,11 +73,7 @@ export const Matrix: React.FC<MatrixProps> = ({ onEditMatrix}) => {
         >
           Add row
         </button>
-        <button
-          className="matrix__edit-button"
-          onClick={onEditMatrix}
-          title="Edit matrix settings"
-        >
+        <button className="matrix__edit-button" onClick={onEditMatrix} title="Edit matrix settings">
           Edit Matrix
         </button>
       </div>
@@ -125,7 +121,7 @@ export const Matrix: React.FC<MatrixProps> = ({ onEditMatrix}) => {
               </tr>
             ))}
           </tbody>
-          
+
           <tfoot className="matrix__percentile-wrapper">
             <tr className="matrix__row matrix__row--percentile">
               {matrix[0].map((_, colIndex) => (

@@ -44,7 +44,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
   }, [initialValues]);
 
   const validateFields = (name: keyof FormValues, value: string) => {
-    const numValue =  parseInt(value);
+    const numValue = parseInt(value);
 
     if (value === '') {
       return 'This field is required';
@@ -57,21 +57,22 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
           return 'Must be between 1 and 100';
         }
         break;
-      case 'x':
-        { const maxX = parseInt(formValues.m) * parseInt(formValues.n);
+      case 'x': {
+        const maxX = parseInt(formValues.m) * parseInt(formValues.n);
 
         if (numValue < 1 || numValue > maxX) {
           return `X must be between 1 and ${maxX} (formValues.m * formValues.n)`;
-        } 
-        break; }
+        }
+        break;
+      }
     }
 
     return '';
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target;
-    
+    const { name, value } = e.target;
+
     setFormValues((prev) => ({
       ...prev,
       [name]: value,
@@ -80,14 +81,14 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    
+
     setTouched((prev) => ({
       ...prev,
       [name]: true,
     }));
 
     const error = validateFields(name as keyof FormValues, value);
-    
+
     setErrors((prev) => ({
       ...prev,
       [name]: error,
@@ -106,10 +107,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
     const newErrors: Partial<FormValues> = {};
 
     Object.keys(formValues).forEach((key) => {
-      const error = validateFields(
-        key as keyof FormValues,
-        formValues[key as keyof FormValues]
-      );
+      const error = validateFields(key as keyof FormValues, formValues[key as keyof FormValues]);
 
       if (error) {
         newErrors[key as keyof FormValues] = error;
@@ -130,9 +128,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
     onGenerate();
   };
 
-  const maxX = formValues.m && formValues.n
-    ? parseInt(formValues.m) * parseInt(formValues.n)
-    : 0;
+  const maxX = formValues.m && formValues.n ? parseInt(formValues.m) * parseInt(formValues.n) : 0;
 
   return (
     <div className="controls">
@@ -187,12 +183,8 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
               max={maxX || 100}
               required
             />
-            
             {touched.x && errors.x && <div className="controls__error-message">{errors.x}</div>}
-            
-            {maxX > 0 && (
-              <div className="controls__hint">Max possible X: {maxX}</div>
-            )}
+            {maxX > 0 && <div className="controls__hint">Max possible X: {maxX}</div>}
           </label>
         </div>
 

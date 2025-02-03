@@ -4,8 +4,6 @@ import '../styles/Cell.css';
 
 const Cell: React.FC<CellProps> = ({
   cell,
-  rowIndex,
-  colIndex,
   isHighlighted,
   showPercentage,
   percentageValue,

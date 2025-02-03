@@ -8,12 +8,7 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  onClose,
-  title,
-  children
-}) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) {
     return null;
   }
@@ -28,11 +23,11 @@ const Modal: React.FC<ModalProps> = ({
         <div className="modal__content" onClick={handleContentClick}>
           <div className="modal__header">
             <h2 className="moda__title">{title}</h2>
-            <button className="modal__close" onClick={onClose}>x</button>
+            <button className="modal__close" onClick={onClose}>
+              x
+            </button>
           </div>
-          <div className="modal__body">
-            {children}
-          </div>
+          <div className="modal__body">{children}</div>
         </div>
       </div>
     </div>
