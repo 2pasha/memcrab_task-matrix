@@ -54,3 +54,38 @@
 .modal__body {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .modal__overlay {
+    padding: 16px;
+  }
+
+  .modal__content {
+    padding: 16px;
+    width: 100%;
+  }
+
+  .modal__title {
+    font-size: 1.25rem;
+  }
+
+  .modal__close {
+    font-size: 1.25rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .modal__overlay {
+    padding: 10px;
+  }
+
+  .modal__content {
+    padding: 12px;
+  }
+
+  .modal__title {
+    font-size: 1.1rem;
+  }
+}

@@ -10,7 +10,6 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  padding: 0 16px;
 }
 
 .matrix__add-button,
@@ -134,4 +133,59 @@
 
 .matrix__row:hover .matrix__remove-button {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .matrix {
+    max-height: calc(100vh - 120px);
+  }
+
+  .matrix__controls {
+    padding: 0 8px;
+  }
+
+  .matrix__add-button,
+  .matrix__edit-button {
+    padding: 12px;
+    font-size: 14px;
+    min-width: auto;
+  }
+
+  .matrix__header-cell {
+    padding: 8px;
+    font-size: 14px;
+    min-width: 80px;
+  }
+
+  .matrix__sum-cell {
+    min-width: 100px;
+    padding: 8px;
+  }
+
+  .matrix__remove-button {
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .matrix__controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .matrix__add-button,
+  .matrix__edit-button {
+    width: 100%;
+  }
+
+  .matrix__header-cell {
+    min-width: 70px;
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .matrix__sum-cell {
+    min-width: 90px;
+  }
 }
