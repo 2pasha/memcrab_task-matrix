@@ -1,0 +1,26 @@
+.matrix__cell {
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  border: 1px solid #dee2e6;
+}
+
+.matrix__cell--highlighted {
+  background-color: #e6f3ff;
+}
+
+.matrix__cell-content {
+  position: relative;
+  z-index: 1;
+}
+
+.matrix__cell-heatmap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: #ff4d4d;
+  transition: width 0.3s ease;
+}
