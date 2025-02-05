@@ -24,3 +24,9 @@
   background-color: #ff4d4d;
   transition: width 0.3s ease;
 }
+
+@media (max-width: 480px) {
+  .matrix__cell {
+    padding: 0.5rem;
+  }
+}

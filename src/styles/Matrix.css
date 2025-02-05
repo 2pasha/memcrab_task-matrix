@@ -4,12 +4,17 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .matrix__controls {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  position: sticky;
+  left: 0;
 }
 
 .matrix__add-button,
@@ -20,6 +25,7 @@
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.2s;
+  white-space: nowrap;
 }
 
 .matrix__add-button {
@@ -47,12 +53,15 @@
 
 .matrix__table-container {
   position: relative;
-  overflow-y: auto;
-  max-height: calc(80vh - 60px);
+  overflow: auto;
+  max-height: calc(80vh - 84px);
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
 .matrix__table {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
   background: white;
 }
@@ -70,6 +79,16 @@
   background: #f8fafc;
   font-weight: 600;
   text-align: center;
+  white-space: nowrap;
+}
+
+.matrix__header-cell--sum {
+  position: sticky;
+  right: 0;
+  background: #f1f5f9;
+  box-shadow: -4px 0 6px rgba(0, 0, 0, 0.05);
+  isolation: isolate;
+  z-index: 3;
 }
 
 .matrix__body {
@@ -98,21 +117,30 @@
   border: 1px solid #e2e8f0;
   text-align: center;
   font-weight: 600;
+  white-space: nowrap;
+  background: #f1f5f9;
 }
 
 .matrix__percentile-cell--total {
+  position: sticky;
+  right: 0;
   background: #f1f5f9;
+  box-shadow: -4px 0 6px rgba(0, 0, 0, 0.05);
 }
 
 .matrix__sum-cell {
   padding: 1rem;
   text-align: center;
-  background-color: #e9ecef;
-  position: relative;
+  background-color: #f1f5f9;
+  position: sticky;
+  right: 0;
   width: 120px;
   min-width: 120px;
   height: 60px;
   font-weight: 600;
+  box-shadow: -4px 0 6px rgba(0, 0, 0, 0.05);
+  isolation: isolate;
+  z-index: 1;
 }
 
 .matrix__remove-button {
@@ -138,10 +166,11 @@
 @media (max-width: 768px) {
   .matrix {
     max-height: calc(100vh - 120px);
+    padding: 0 16px;
   }
 
   .matrix__controls {
-    padding: 0 8px;
+    padding: 0;
   }
 
   .matrix__add-button,
@@ -169,6 +198,11 @@
 }
 
 @media (max-width: 480px) {
+  .matrix {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
   .matrix__controls {
     flex-direction: column;
     gap: 8px;
@@ -180,7 +214,7 @@
   }
 
   .matrix__header-cell {
-    min-width: 70px;
+    min-width: 60px;
     font-size: 12px;
     padding: 6px;
   }

@@ -130,7 +130,7 @@ export const Matrix: React.FC<MatrixProps> = ({ onEditMatrix }) => {
                 </td>
               ))}
               <td className="matrix__percentile-cell matrix__percentile-cell--total">
-                50th percentile
+                50th <br /> percentile
               </td>
             </tr>
           </tfoot>
