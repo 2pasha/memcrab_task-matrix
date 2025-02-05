@@ -57,6 +57,32 @@
   max-height: calc(80vh - 84px);
   border-radius: 8px;
   border: 1px solid #e2e8f0;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.matrix__table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.matrix__table-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.matrix__table-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+  border: 2px solid #f1f5f9;
+}
+
+.matrix__table-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.matrix__table-container::-webkit-scrollbar-corner {
+  background: #f1f5f9;
 }
 
 .matrix__table {
@@ -118,7 +144,6 @@
   text-align: center;
   font-weight: 600;
   white-space: nowrap;
-  background: #f1f5f9;
 }
 
 .matrix__percentile-cell--total {
@@ -126,6 +151,8 @@
   right: 0;
   background: #f1f5f9;
   box-shadow: -4px 0 6px rgba(0, 0, 0, 0.05);
+  isolation: isolate;
+  z-index: 3;
 }
 
 .matrix__sum-cell {
@@ -175,25 +202,33 @@
 
   .matrix__add-button,
   .matrix__edit-button {
-    padding: 12px;
-    font-size: 14px;
+    padding: 10px;
+    font-size: 13px;
     min-width: auto;
   }
 
   .matrix__header-cell {
-    padding: 8px;
-    font-size: 14px;
-    min-width: 80px;
+    padding: 6px;
+    font-size: 13px;
+    min-width: 65px;
+  }
+
+  .matrix__percentile-cell {
+    padding: 6px;
+    font-size: 13px;
   }
 
   .matrix__sum-cell {
-    min-width: 100px;
-    padding: 8px;
+    min-width: 90px;
+    padding: 6px;
+    height: 45px;
+    font-size: 13px;
   }
 
   .matrix__remove-button {
-    padding: 4px 8px;
-    font-size: 14px;
+    padding: 4px 6px;
+    font-size: 13px;
+    right: 0.25rem;
   }
 }
 
@@ -211,15 +246,32 @@
   .matrix__add-button,
   .matrix__edit-button {
     width: 100%;
+    padding: 8px;
+    font-size: 12px;
   }
 
   .matrix__header-cell {
     min-width: 60px;
     font-size: 12px;
-    padding: 6px;
+    padding: 5px;
+  }
+
+  .matrix__percentile-cell {
+    padding: 5px;
+    font-size: 12px;
   }
 
   .matrix__sum-cell {
-    min-width: 90px;
+    min-width: 60px;
+    width: 60px;
+    padding: 5px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .matrix__remove-button {
+    padding: 3px 5px;
+    font-size: 12px;
+    right: 0.2rem;
   }
 }
