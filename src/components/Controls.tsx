@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useMatrix } from '../contexts/MatrixContext';
 import '../styles/Controls.css';
 
+export const MAX_ROWS = 100;
+export const MAX_COLS = 100;
+
 interface ControlsProps {
   onGenerate: () => void;
   initialValues?: { m: number; n: number; x: number } | null;
@@ -53,8 +56,8 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
     switch (name) {
       case 'm':
       case 'n':
-        if (numValue < 1 || numValue > 100) {
-          return 'Must be between 1 and 100';
+        if (numValue < 1 || numValue > MAX_ROWS) {
+          return `Must be between 1 and ${MAX_ROWS}`;
         }
         break;
       case 'x': {
@@ -135,7 +138,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
       <form className="contols__form" onSubmit={handleSubmit}>
         <div className="controls__form-group">
           <label className="controls__label">
-            Enter the number of rows (1-100):
+            Enter the number of rows (1-{MAX_ROWS}):
             <input
               className="controls__input"
               type="number"
@@ -144,7 +147,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
               onChange={handleChange}
               onBlur={handleBlur}
               min={1}
-              max={100}
+              max={MAX_ROWS}
               required
             />
             {touched.m && errors.m && <div className="controls__error-message">{errors.m}</div>}
@@ -153,7 +156,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
 
         <div className="controls__form-group">
           <label className="controls__label">
-            Enter the number of columns (1-100):
+            Enter the number of columns (1-{MAX_COLS}):
             <input
               className="controls__input"
               type="number"
@@ -162,7 +165,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
               onChange={handleChange}
               onBlur={handleBlur}
               min={1}
-              max={100}
+              max={MAX_COLS}
               required
             />
             {touched.n && errors.n && <div className="controls__error-message">{errors.n}</div>}
@@ -180,7 +183,7 @@ const Controls: React.FC<ControlsProps> = ({ onGenerate, initialValues }) => {
               onChange={handleChange}
               onBlur={handleBlur}
               min={1}
-              max={maxX || 100}
+              max={maxX}
               required
             />
             {touched.x && errors.x && <div className="controls__error-message">{errors.x}</div>}

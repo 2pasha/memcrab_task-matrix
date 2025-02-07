@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMatrix } from '../contexts/MatrixContext';
 import '../styles/Matrix.css';
 import Cell from './Cell';
+import { MAX_ROWS } from './Controls';
 
 interface MatrixProps {
   onEditMatrix: () => void;
@@ -65,11 +66,11 @@ export const Matrix: React.FC<MatrixProps> = ({ onEditMatrix }) => {
       <div className="matrix__controls">
         <button
           className={`matrix__add-button ${
-            matrix.length >= 100 ? 'matrix__add-button--disabled' : ''
+            matrix.length >= MAX_ROWS ? 'matrix__add-button--disabled' : ''
           }`}
           onClick={addRow}
-          disabled={matrix.length >= 100}
-          title={matrix.length >= 100 ? 'Maximum number of rows reached (100)' : 'Add new row'}
+          disabled={matrix.length >= MAX_ROWS}
+          title={matrix.length >= MAX_ROWS ? `Maximum number of rows reached (${MAX_ROWS})` : 'Add new row'}
         >
           Add row
         </button>
